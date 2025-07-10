@@ -20,3 +20,124 @@
   from { transform: translateY(40px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
+/* CV Responsive Styles */
+.cv-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  background: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.cv-sidebar {
+  background-color: #2c3e50;
+  color: white;
+  width: 35%;
+  padding: 40px 30px;
+}
+
+.cv-main-content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* Large Desktop (1400px and above) */
+@media (min-width: 1400px) {
+  .cv-container {
+    max-width: 1400px;
+    margin: 30px auto;
+  }
+  .cv-sidebar {
+    padding: 50px 40px;
+  }
+  .cv-main-content {
+    padding: 50px;
+  }
+}
+
+/* Desktop (1024px to 1399px) */
+@media (max-width: 1399px) and (min-width: 1024px) {
+  .cv-container {
+    max-width: 1000px;
+    margin: 25px auto;
+  }
+  .cv-sidebar {
+    padding: 35px 25px;
+  }
+  .cv-main-content {
+    padding: 35px;
+  }
+}
+
+/* Tablet (768px to 1023px) */
+@media (max-width: 1023px) and (min-width: 769px) {
+  .cv-container {
+    max-width: 95%;
+    margin: 15px auto;
+  }
+  .cv-sidebar {
+    width: 40%;
+    padding: 30px 20px;
+  }
+  .cv-main-content {
+    padding: 30px 25px;
+  }
+}
+
+/* Mobile (481px to 768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+  .cv-container {
+    flex-direction: column;
+    margin: 5px;
+    min-height: auto;
+    max-width: 100%;
+  }
+  .cv-sidebar {
+    width: 100%;
+    padding: 25px 20px;
+    order: 1;
+  }
+  .cv-main-content {
+    padding: 25px 20px;
+    order: 2;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Small Mobile (320px to 480px) */
+@media (max-width: 480px) and (min-width: 321px) {
+  .cv-container {
+    margin: 2px;
+    max-width: 100%;
+  }
+  .cv-sidebar {
+    padding: 20px 15px;
+    width: 100%;
+  }
+  .cv-main-content {
+    padding: 20px 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Extra Small Mobile (below 320px) */
+@media (max-width: 320px) {
+  .cv-container {
+    margin: 1px;
+    max-width: 100%;
+  }
+  .cv-sidebar {
+    padding: 15px 10px;
+    width: 100%;
+  }
+  .cv-main-content {
+    padding: 15px 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
