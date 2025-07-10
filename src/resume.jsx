@@ -3,7 +3,7 @@ import React from "react";
 const CV = () => {
   const styles = {
     container: {
-      maxWidth: "900px",
+      maxWidth: "1200px",
       margin: "20px auto",
       background: "white",
       boxShadow: "0 0 20px rgba(0,0,0,0.1)",
@@ -54,6 +54,7 @@ const CV = () => {
     contactItem: {
       marginBottom: "8px",
       fontSize: "14px",
+      wordBreak: "break-word",
     },
     skillsList: {
       listStyle: "none",
@@ -106,26 +107,235 @@ const CV = () => {
       backgroundColor: "#f5f5f5",
       color: "#333",
     },
-    // Media queries for responsive design
-    "@media (max-width: 768px)": {
+    // Large Desktop (1400px and above)
+    "@media (min-width: 1400px)": {
+      container: {
+        maxWidth: "1400px",
+        margin: "30px auto",
+      },
+      sidebar: {
+        padding: "50px 40px",
+      },
+      mainContent: {
+        padding: "50px",
+      },
+      name: {
+        fontSize: "32px",
+      },
+      title: {
+        fontSize: "18px",
+      },
+      sectionTitle: {
+        fontSize: "16px",
+      },
+      mainSectionTitle: {
+        fontSize: "20px",
+      },
+      contactItem: {
+        fontSize: "15px",
+      },
+      skillItem: {
+        fontSize: "15px",
+      },
+      jobTitle: {
+        fontSize: "18px",
+      },
+      company: {
+        fontSize: "15px",
+      },
+      description: {
+        fontSize: "15px",
+      },
+    },
+    // Desktop (1024px to 1399px)
+    "@media (max-width: 1399px) and (min-width: 1024px)": {
+      container: {
+        maxWidth: "1000px",
+        margin: "25px auto",
+      },
+      sidebar: {
+        padding: "35px 25px",
+      },
+      mainContent: {
+        padding: "35px",
+      },
+    },
+    // Tablet (768px to 1023px)
+    "@media (max-width: 1023px) and (min-width: 769px)": {
+      container: {
+        maxWidth: "95%",
+        margin: "15px auto",
+      },
+      sidebar: {
+        width: "40%",
+        padding: "30px 20px",
+      },
+      mainContent: {
+        padding: "30px 25px",
+      },
+      name: {
+        fontSize: "26px",
+      },
+      title: {
+        fontSize: "15px",
+      },
+      sectionTitle: {
+        fontSize: "13px",
+      },
+      mainSectionTitle: {
+        fontSize: "17px",
+      },
+    },
+    // Mobile (481px to 768px)
+    "@media (max-width: 768px) and (min-width: 481px)": {
       container: {
         flexDirection: "column",
-        margin: "10px",
+        margin: "5px",
+        minHeight: "auto",
       },
       sidebar: {
         width: "100%",
+        padding: "25px 20px",
+        order: 1,
+      },
+      mainContent: {
+        padding: "25px 20px",
+        order: 2,
+      },
+      name: {
+        fontSize: "26px",
+        textAlign: "center",
+        marginBottom: "8px",
+      },
+      title: {
+        fontSize: "15px",
+        textAlign: "center",
+        marginBottom: "25px",
+      },
+      sectionTitle: {
+        fontSize: "16px",
+        marginBottom: "12px",
+        marginTop: "25px",
+        textAlign: "center",
+      },
+      mainSectionTitle: {
+        fontSize: "20px",
+        marginBottom: "15px",
+        marginTop: "25px",
+        textAlign: "center",
+      },
+      contactInfo: {
+        marginBottom: "20px",
+      },
+      contactItem: {
+        marginBottom: "10px",
+        fontSize: "15px",
+        textAlign: "center",
+      },
+      skillItem: {
+        marginBottom: "10px",
+        fontSize: "15px",
+        textAlign: "center",
+      },
+      experienceItem: {
+        marginBottom: "20px",
+        padding: "15px",
+        backgroundColor: "#f9f9f9",
+        borderRadius: "8px",
+      },
+      jobTitle: {
+        fontSize: "17px",
+        marginBottom: "8px",
+      },
+      company: {
+        fontSize: "15px",
+        marginBottom: "8px",
+      },
+      date: {
+        fontSize: "13px",
+        marginBottom: "12px",
+      },
+      description: {
+        fontSize: "15px",
+        lineHeight: "1.6",
+      },
+    },
+    // Small Mobile (320px to 480px)
+    "@media (max-width: 480px) and (min-width: 321px)": {
+      container: {
+        margin: "2px",
+      },
+      sidebar: {
         padding: "20px 15px",
       },
       mainContent: {
-        padding: "20px",
+        padding: "20px 15px",
       },
       name: {
         fontSize: "24px",
-        textAlign: "center",
       },
       title: {
         fontSize: "14px",
-        textAlign: "center",
+      },
+      sectionTitle: {
+        fontSize: "15px",
+      },
+      mainSectionTitle: {
+        fontSize: "18px",
+      },
+      contactItem: {
+        fontSize: "14px",
+      },
+      skillItem: {
+        fontSize: "14px",
+      },
+      jobTitle: {
+        fontSize: "16px",
+      },
+      company: {
+        fontSize: "14px",
+      },
+      description: {
+        fontSize: "14px",
+      },
+    },
+    // Extra Small Mobile (below 320px)
+    "@media (max-width: 320px)": {
+      container: {
+        margin: "1px",
+      },
+      sidebar: {
+        padding: "15px 10px",
+      },
+      mainContent: {
+        padding: "15px 10px",
+      },
+      name: {
+        fontSize: "22px",
+      },
+      title: {
+        fontSize: "13px",
+      },
+      sectionTitle: {
+        fontSize: "14px",
+      },
+      mainSectionTitle: {
+        fontSize: "16px",
+      },
+      contactItem: {
+        fontSize: "13px",
+      },
+      skillItem: {
+        fontSize: "13px",
+      },
+      jobTitle: {
+        fontSize: "15px",
+      },
+      company: {
+        fontSize: "13px",
+      },
+      description: {
+        fontSize: "13px",
       },
     },
   };
