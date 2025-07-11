@@ -6,8 +6,11 @@ const CV = () => {
     container: {
       minHeight: "100vh",
       backgroundColor: "#f3f4f6",
-      padding: "8px",
+      padding: "0px",
       "@media (min-width: 640px)": {
+        padding: "8px",
+      },
+      "@media (min-width: 768px)": {
         padding: "16px",
       },
       "@media (min-width: 1024px)": {
@@ -19,9 +22,12 @@ const CV = () => {
       margin: "0 auto",
       backgroundColor: "white",
       boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-      borderRadius: "8px",
+      borderRadius: "0px",
       overflow: "hidden",
       animation: "fadeIn 0.8s ease-in-out",
+      "@media (min-width: 640px)": {
+        borderRadius: "8px",
+      },
     },
     desktopLayout: {
       display: "none",
@@ -231,7 +237,7 @@ const CV = () => {
       color: "#d1d5db",
     },
     mobileContent: {
-      padding: "16px",
+      padding: "20px",
       display: "flex",
       flexDirection: "column",
       gap: "24px",
@@ -240,7 +246,7 @@ const CV = () => {
       backgroundColor: "white",
       borderRadius: "8px",
       boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-      padding: "16px",
+      padding: "20px",
     },
     mobileCardTitle: {
       fontSize: "18px",
@@ -254,8 +260,8 @@ const CV = () => {
     mobileContactList: {
       display: "flex",
       flexDirection: "column",
-      gap: "8px",
-      fontSize: "14px",
+      gap: "12px",
+      fontSize: "16px",
       textAlign: "left",
     },
     mobileContactItem: {
@@ -266,8 +272,8 @@ const CV = () => {
     mobileSkillsGrid: {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
-      gap: "8px",
-      fontSize: "14px",
+      gap: "12px",
+      fontSize: "16px",
       textAlign: "left",
     },
     mobileSkillItem: {
@@ -294,8 +300,8 @@ const CV = () => {
     mobileLanguagesList: {
       display: "flex",
       flexDirection: "column",
-      gap: "8px",
-      fontSize: "14px",
+      gap: "12px",
+      fontSize: "16px",
       textAlign: "left",
     },
     mobileEducationContent: {
@@ -309,16 +315,16 @@ const CV = () => {
       color: "#1e293b",
     },
     mobileEducationSubtitle: {
-      fontSize: "14px",
+      fontSize: "16px",
       color: "#4b5563",
     },
     mobileEducationDate: {
-      fontSize: "14px",
+      fontSize: "16px",
       fontWeight: "bold",
       color: "#374151",
     },
     mobileEducationDescription: {
-      fontSize: "14px",
+      fontSize: "16px",
       color: "#374151",
       lineHeight: "1.6",
     },
@@ -337,24 +343,24 @@ const CV = () => {
       color: "#1e293b",
     },
     mobileExperienceSubtitle: {
-      fontSize: "14px",
+      fontSize: "16px",
       color: "#4b5563",
     },
     mobileExperienceDate: {
-      fontSize: "14px",
+      fontSize: "16px",
       fontWeight: "bold",
       color: "#374151",
       marginBottom: "8px",
     },
     mobileExperienceDescription: {
-      fontSize: "14px",
+      fontSize: "16px",
       color: "#374151",
       lineHeight: "1.6",
     },
     iconStyle: {
-      width: "16px",
-      height: "16px",
-      marginRight: "8px",
+      width: "18px",
+      height: "18px",
+      marginRight: "10px",
       marginTop: "2px",
       flexShrink: 0,
     },
