@@ -1,4 +1,5 @@
 import React from "react";
+import { Mail, Phone, MapPin, Linkedin, Globe } from "lucide-react";
 
 const CV = () => {
   const styles = {
@@ -248,18 +249,26 @@ const CV = () => {
       color: "#1e293b",
       borderBottom: "1px solid #e5e7eb",
       paddingBottom: "8px",
+      textAlign: "left",
     },
     mobileContactList: {
       display: "flex",
       flexDirection: "column",
       gap: "8px",
       fontSize: "14px",
+      textAlign: "left",
+    },
+    mobileContactItem: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: "8px",
     },
     mobileSkillsGrid: {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
       gap: "8px",
       fontSize: "14px",
+      textAlign: "left",
     },
     mobileSkillItem: {
       display: "flex",
@@ -287,11 +296,13 @@ const CV = () => {
       flexDirection: "column",
       gap: "8px",
       fontSize: "14px",
+      textAlign: "left",
     },
     mobileEducationContent: {
       display: "flex",
       flexDirection: "column",
       gap: "8px",
+      textAlign: "left",
     },
     mobileEducationTitle: {
       fontWeight: "bold",
@@ -315,6 +326,7 @@ const CV = () => {
       display: "flex",
       flexDirection: "column",
       gap: "16px",
+      textAlign: "left",
     },
     mobileExperienceItem: {
       borderLeft: "4px solid #60a5fa",
@@ -338,6 +350,13 @@ const CV = () => {
       fontSize: "14px",
       color: "#374151",
       lineHeight: "1.6",
+    },
+    iconStyle: {
+      width: "16px",
+      height: "16px",
+      marginRight: "8px",
+      marginTop: "2px",
+      flexShrink: 0,
     },
   };
 
@@ -450,11 +469,8 @@ const CV = () => {
                     ESI SBA (École Supérieure en Informatique de Sidi Bel Abbès)
                   </p>
                   <p style={styles.cardLocation}>Sidi Bel Abbès, Algeria</p>
-                  <p style={styles.cardDate}>2023 - 2025 (Expected)</p>
-                  <p style={styles.cardDescription}>
-                    Currently in 3rd year, specializing in software development
-                    and computer engineering.
-                  </p>
+                  <p style={styles.cardDate}>2023 - 2028 (Expected)</p>
+                  <p style={styles.cardDescription}>Currently in 3rd year.</p>
                 </div>
               </div>
 
@@ -506,27 +522,38 @@ const CV = () => {
             <div style={styles.mobileCard}>
               <h2 style={styles.mobileCardTitle}>CONTACT</h2>
               <div style={styles.mobileContactList}>
-                <div style={styles.contactItem}>📧 hayatttt1111@gmail.com</div>
-                <div>📱 +213 696 825 204</div>
-                <div>📍 Tissemsilt, Algeria</div>
-                <div>
+                <div style={styles.mobileContactItem}>
+                  <Mail style={styles.iconStyle} />
+                  hayatttt1111@gmail.com
+                </div>
+                <div style={styles.mobileContactItem}>
+                  <Phone style={styles.iconStyle} />
+                  +213 696 825 204
+                </div>
+                <div style={styles.mobileContactItem}>
+                  <MapPin style={styles.iconStyle} />
+                  Tissemsilt, Algeria
+                </div>
+                <div style={styles.mobileContactItem}>
+                  <Linkedin style={styles.iconStyle} />
                   <a
                     href="https://www.linkedin.com/in/mellal-hayat-05bb11361/"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: "#2563eb", textDecoration: "underline" }}
                   >
-                    💼 LinkedIn Profile
+                    LinkedIn Profile
                   </a>
                 </div>
-                <div>
+                <div style={styles.mobileContactItem}>
+                  <Globe style={styles.iconStyle} />
                   <a
                     href="https://hytmel.github.io/hayatdev-portfolio/"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: "#2563eb", textDecoration: "underline" }}
                   >
-                    🌐 Portfolio Website
+                    Portfolio Website
                   </a>
                 </div>
               </div>
