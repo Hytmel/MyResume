@@ -3,423 +3,675 @@ import React from "react";
 const CV = () => {
   const styles = {
     container: {
-      maxWidth: "1200px",
-      margin: "20px auto",
-      background: "white",
-      boxShadow: "0 0 20px rgba(0,0,0,0.1)",
-      display: "flex",
       minHeight: "100vh",
-      fontFamily: "Arial, sans-serif",
+      backgroundColor: "#f3f4f6",
+      padding: "8px",
+      "@media (min-width: 640px)": {
+        padding: "16px",
+      },
+      "@media (min-width: 1024px)": {
+        padding: "24px",
+      },
+    },
+    wrapper: {
+      maxWidth: "1152px",
+      margin: "0 auto",
+      backgroundColor: "white",
+      boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+      borderRadius: "8px",
+      overflow: "hidden",
+      animation: "fadeIn 0.8s ease-in-out",
+    },
+    desktopLayout: {
+      display: "none",
+      minHeight: "100vh",
+      "@media (min-width: 768px)": {
+        display: "flex",
+      },
     },
     sidebar: {
-      backgroundColor: "#2c3e50",
+      width: "40%",
+      backgroundColor: "#1e293b",
       color: "white",
-      width: "35%",
-      padding: "40px 30px",
+      padding: "24px",
+      "@media (min-width: 1024px)": {
+        width: "33.333333%",
+        padding: "32px",
+      },
+      "@media (min-width: 1280px)": {
+        padding: "40px",
+      },
     },
-    mainContent: {
-      flex: 1,
-      padding: "40px",
+    sidebarContent: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "24px",
     },
-    name: {
-      fontSize: "28px",
+    profileSection: {
+      textAlign: "center",
+    },
+    profileName: {
+      fontSize: "24px",
       fontWeight: "bold",
-      marginBottom: "10px",
-      letterSpacing: "2px",
+      marginBottom: "8px",
+      letterSpacing: "0.025em",
+      "@media (min-width: 1024px)": {
+        fontSize: "30px",
+      },
+      "@media (min-width: 1280px)": {
+        fontSize: "36px",
+      },
     },
-    title: {
-      fontSize: "16px",
+    profileTitle: {
+      fontSize: "14px",
       fontWeight: "300",
-      marginBottom: "30px",
-      letterSpacing: "1px",
+      letterSpacing: "0.025em",
+      color: "#d1d5db",
+      "@media (min-width: 1024px)": {
+        fontSize: "16px",
+      },
+      "@media (min-width: 1280px)": {
+        fontSize: "18px",
+      },
     },
     sectionTitle: {
       fontSize: "14px",
       fontWeight: "bold",
-      marginBottom: "15px",
-      marginTop: "30px",
-      letterSpacing: "1px",
+      marginBottom: "12px",
+      letterSpacing: "0.025em",
+      borderBottom: "1px solid #4b5563",
+      paddingBottom: "8px",
+      "@media (min-width: 1024px)": {
+        fontSize: "16px",
+      },
     },
-    mainSectionTitle: {
-      fontSize: "18px",
-      fontWeight: "bold",
-      marginBottom: "20px",
-      marginTop: "30px",
-      letterSpacing: "1px",
-      color: "#2c3e50",
-    },
-    contactInfo: {
-      marginBottom: "25px",
+    contactList: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "8px",
+      fontSize: "14px",
+      "@media (min-width: 1024px)": {
+        fontSize: "16px",
+      },
     },
     contactItem: {
-      marginBottom: "8px",
-      fontSize: "14px",
-      wordBreak: "break-word",
+      wordBreak: "break-words",
+    },
+    link: {
+      color: "#93c5fd",
+      textDecoration: "underline",
+      transition: "color 0.3s ease",
+    },
+    linkHover: {
+      color: "#bfdbfe",
     },
     skillsList: {
-      listStyle: "none",
-      padding: 0,
+      display: "flex",
+      flexDirection: "column",
+      gap: "8px",
+      fontSize: "14px",
+      "@media (min-width: 1024px)": {
+        fontSize: "16px",
+      },
     },
     skillItem: {
-      marginBottom: "8px",
-      fontSize: "14px",
+      display: "flex",
+      alignItems: "center",
     },
-    experienceItem: {
-      marginBottom: "25px",
+    skillDot: {
+      width: "8px",
+      height: "8px",
+      backgroundColor: "#60a5fa",
+      borderRadius: "50%",
+      marginRight: "12px",
     },
-    jobTitle: {
-      fontSize: "16px",
+    languageDot: {
+      width: "8px",
+      height: "8px",
+      backgroundColor: "#4ade80",
+      borderRadius: "50%",
+      marginRight: "12px",
+    },
+    mainContent: {
+      flex: 1,
+      padding: "24px",
+      "@media (min-width: 1024px)": {
+        padding: "32px",
+      },
+      "@media (min-width: 1280px)": {
+        padding: "40px",
+      },
+    },
+    mainSections: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "32px",
+    },
+    section: {
+      animation: "slideIn 0.8s ease-in-out",
+    },
+    mainSectionTitle: {
+      fontSize: "20px",
       fontWeight: "bold",
-      marginBottom: "5px",
-    },
-    company: {
-      fontSize: "14px",
-      color: "#666",
-      marginBottom: "5px",
-    },
-    date: {
-      fontSize: "12px",
-      color: "#888",
-      marginBottom: "10px",
-      fontWeight: "bold",
-    },
-    description: {
-      fontSize: "14px",
-      lineHeight: "1.5",
-    },
-    descriptionList: {
-      marginLeft: "20px",
-    },
-    descriptionItem: {
-      marginBottom: "5px",
-    },
-    achievementsText: {
-      fontSize: "14px",
-      lineHeight: "1.6",
-      textAlign: "justify",
-    },
-    firstSection: {
-      marginTop: "0",
-    },
-    body: {
-      margin: 0,
-      padding: 0,
-      backgroundColor: "#f5f5f5",
-      color: "#333",
-    },
-    // Large Desktop (1400px and above)
-    "@media (min-width: 1400px)": {
-      container: {
-        maxWidth: "1400px",
-        margin: "30px auto",
-      },
-      sidebar: {
-        padding: "50px 40px",
-      },
-      mainContent: {
-        padding: "50px",
-      },
-      name: {
-        fontSize: "32px",
-      },
-      title: {
-        fontSize: "18px",
-      },
-      sectionTitle: {
-        fontSize: "16px",
-      },
-      mainSectionTitle: {
-        fontSize: "20px",
-      },
-      contactItem: {
-        fontSize: "15px",
-      },
-      skillItem: {
-        fontSize: "15px",
-      },
-      jobTitle: {
-        fontSize: "18px",
-      },
-      company: {
-        fontSize: "15px",
-      },
-      description: {
-        fontSize: "15px",
-      },
-    },
-    // Desktop (1024px to 1399px)
-    "@media (max-width: 1399px) and (min-width: 1024px)": {
-      container: {
-        maxWidth: "1000px",
-        margin: "25px auto",
-      },
-      sidebar: {
-        padding: "35px 25px",
-      },
-      mainContent: {
-        padding: "35px",
-      },
-    },
-    // Tablet (768px to 1023px)
-    "@media (max-width: 1023px) and (min-width: 769px)": {
-      container: {
-        maxWidth: "95%",
-        margin: "15px auto",
-      },
-      sidebar: {
-        width: "40%",
-        padding: "30px 20px",
-      },
-      mainContent: {
-        padding: "30px 25px",
-      },
-      name: {
-        fontSize: "26px",
-      },
-      title: {
-        fontSize: "15px",
-      },
-      sectionTitle: {
-        fontSize: "13px",
-      },
-      mainSectionTitle: {
-        fontSize: "17px",
-      },
-    },
-    // Mobile (481px to 768px)
-    "@media (max-width: 768px) and (min-width: 481px)": {
-      container: {
-        flexDirection: "column",
-        margin: "5px",
-        minHeight: "auto",
-      },
-      sidebar: {
-        width: "100%",
-        padding: "25px 20px",
-        order: 1,
-      },
-      mainContent: {
-        padding: "25px 20px",
-        order: 2,
-      },
-      name: {
-        fontSize: "26px",
-        textAlign: "center",
-        marginBottom: "8px",
-      },
-      title: {
-        fontSize: "15px",
-        textAlign: "center",
-        marginBottom: "25px",
-      },
-      sectionTitle: {
-        fontSize: "16px",
-        marginBottom: "12px",
-        marginTop: "25px",
-        textAlign: "center",
-      },
-      mainSectionTitle: {
-        fontSize: "20px",
-        marginBottom: "15px",
-        marginTop: "25px",
-        textAlign: "center",
-      },
-      contactInfo: {
-        marginBottom: "20px",
-      },
-      contactItem: {
-        marginBottom: "10px",
-        fontSize: "15px",
-        textAlign: "center",
-      },
-      skillItem: {
-        marginBottom: "10px",
-        fontSize: "15px",
-        textAlign: "center",
-      },
-      experienceItem: {
-        marginBottom: "20px",
-        padding: "15px",
-        backgroundColor: "#f9f9f9",
-        borderRadius: "8px",
-      },
-      jobTitle: {
-        fontSize: "17px",
-        marginBottom: "8px",
-      },
-      company: {
-        fontSize: "15px",
-        marginBottom: "8px",
-      },
-      date: {
-        fontSize: "13px",
-        marginBottom: "12px",
-      },
-      description: {
-        fontSize: "15px",
-        lineHeight: "1.6",
-      },
-    },
-    // Small Mobile (320px to 480px)
-    "@media (max-width: 480px) and (min-width: 321px)": {
-      container: {
-        margin: "2px",
-      },
-      sidebar: {
-        padding: "20px 15px",
-      },
-      mainContent: {
-        padding: "20px 15px",
-      },
-      name: {
+      marginBottom: "24px",
+      color: "#1e293b",
+      borderBottom: "2px solid #1e293b",
+      paddingBottom: "8px",
+      "@media (min-width: 1024px)": {
         fontSize: "24px",
       },
-      title: {
-        fontSize: "14px",
-      },
-      sectionTitle: {
-        fontSize: "15px",
-      },
-      mainSectionTitle: {
-        fontSize: "18px",
-      },
-      contactItem: {
-        fontSize: "14px",
-      },
-      skillItem: {
-        fontSize: "14px",
-      },
-      jobTitle: {
-        fontSize: "16px",
-      },
-      company: {
-        fontSize: "14px",
-      },
-      description: {
-        fontSize: "14px",
+      "@media (min-width: 1280px)": {
+        fontSize: "30px",
       },
     },
-    // Extra Small Mobile (below 320px)
-    "@media (max-width: 320px)": {
-      container: {
-        margin: "1px",
+    card: {
+      backgroundColor: "#f9fafb",
+      padding: "24px",
+      borderRadius: "8px",
+    },
+    cardTitle: {
+      fontSize: "18px",
+      fontWeight: "bold",
+      marginBottom: "8px",
+      color: "#1e293b",
+      "@media (min-width: 1024px)": {
+        fontSize: "20px",
       },
-      sidebar: {
-        padding: "15px 10px",
-      },
-      mainContent: {
-        padding: "15px 10px",
-      },
-      name: {
-        fontSize: "22px",
-      },
-      title: {
-        fontSize: "13px",
-      },
-      sectionTitle: {
-        fontSize: "14px",
-      },
-      mainSectionTitle: {
+    },
+    cardSubtitle: {
+      color: "#4b5563",
+      marginBottom: "4px",
+      fontWeight: "500",
+    },
+    cardLocation: {
+      color: "#4b5563",
+      marginBottom: "8px",
+    },
+    cardDate: {
+      fontSize: "14px",
+      fontWeight: "bold",
+      color: "#374151",
+      marginBottom: "12px",
+      "@media (min-width: 1024px)": {
         fontSize: "16px",
       },
-      contactItem: {
-        fontSize: "13px",
+    },
+    cardDescription: {
+      color: "#374151",
+      lineHeight: "1.6",
+    },
+    experienceSection: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "24px",
+    },
+    mobileLayout: {
+      display: "block",
+      "@media (min-width: 768px)": {
+        display: "none",
       },
-      skillItem: {
-        fontSize: "13px",
-      },
-      jobTitle: {
-        fontSize: "15px",
-      },
-      company: {
-        fontSize: "13px",
-      },
-      description: {
-        fontSize: "13px",
-      },
+    },
+    mobileHeader: {
+      backgroundColor: "#1e293b",
+      color: "white",
+      padding: "24px",
+      textAlign: "center",
+    },
+    mobileHeaderTitle: {
+      fontSize: "24px",
+      fontWeight: "bold",
+      marginBottom: "8px",
+      letterSpacing: "0.025em",
+    },
+    mobileHeaderSubtitle: {
+      fontSize: "14px",
+      fontWeight: "300",
+      letterSpacing: "0.025em",
+      color: "#d1d5db",
+    },
+    mobileContent: {
+      padding: "16px",
+      display: "flex",
+      flexDirection: "column",
+      gap: "24px",
+    },
+    mobileCard: {
+      backgroundColor: "white",
+      borderRadius: "8px",
+      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+      padding: "16px",
+    },
+    mobileCardTitle: {
+      fontSize: "18px",
+      fontWeight: "bold",
+      marginBottom: "12px",
+      color: "#1e293b",
+      borderBottom: "1px solid #e5e7eb",
+      paddingBottom: "8px",
+    },
+    mobileContactList: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "8px",
+      fontSize: "14px",
+    },
+    mobileSkillsGrid: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: "8px",
+      fontSize: "14px",
+    },
+    mobileSkillItem: {
+      display: "flex",
+      alignItems: "center",
+    },
+    mobileSkillDot: {
+      width: "8px",
+      height: "8px",
+      backgroundColor: "#60a5fa",
+      borderRadius: "50%",
+      marginRight: "8px",
+    },
+    mobileLanguageDot: {
+      width: "8px",
+      height: "8px",
+      backgroundColor: "#4ade80",
+      borderRadius: "50%",
+      marginRight: "8px",
+    },
+    mobilePostmanSkill: {
+      gridColumn: "span 2",
+    },
+    mobileLanguagesList: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "8px",
+      fontSize: "14px",
+    },
+    mobileEducationContent: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "8px",
+    },
+    mobileEducationTitle: {
+      fontWeight: "bold",
+      color: "#1e293b",
+    },
+    mobileEducationSubtitle: {
+      fontSize: "14px",
+      color: "#4b5563",
+    },
+    mobileEducationDate: {
+      fontSize: "14px",
+      fontWeight: "bold",
+      color: "#374151",
+    },
+    mobileEducationDescription: {
+      fontSize: "14px",
+      color: "#374151",
+      lineHeight: "1.6",
+    },
+    mobileExperienceContent: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "16px",
+    },
+    mobileExperienceItem: {
+      borderLeft: "4px solid #60a5fa",
+      paddingLeft: "16px",
+    },
+    mobileExperienceTitle: {
+      fontWeight: "bold",
+      color: "#1e293b",
+    },
+    mobileExperienceSubtitle: {
+      fontSize: "14px",
+      color: "#4b5563",
+    },
+    mobileExperienceDate: {
+      fontSize: "14px",
+      fontWeight: "bold",
+      color: "#374151",
+      marginBottom: "8px",
+    },
+    mobileExperienceDescription: {
+      fontSize: "14px",
+      color: "#374151",
+      lineHeight: "1.6",
     },
   };
 
   return (
-    <div style={styles.body}>
-      <div style={styles.container}>
-        <div style={styles.sidebar}>
-          <div style={styles.name}>Hayat Mellal</div>
-          <div style={styles.title}>Software Engineering Student / Frontend Developer</div>
+    <div style={styles.container}>
+      <div style={styles.wrapper}>
+        {/* Desktop Layout */}
+        <div style={styles.desktopLayout}>
+          {/* Sidebar */}
+          <div style={styles.sidebar}>
+            <div style={styles.sidebarContent}>
+              <div style={styles.profileSection}>
+                <h1 style={styles.profileName}>Hayat Mellal</h1>
+                <p style={styles.profileTitle}>
+                  Software Engineering Student / Frontend Developer
+                </p>
+              </div>
 
-          <div style={styles.sectionTitle}>CONTACT</div>
-          <div style={styles.contactInfo}>
-            <div style={styles.contactItem}>hayatttt1111@gmail.com</div>
-            <div style={styles.contactItem}>+213 696 825 204</div>
-            <div style={styles.contactItem}>Tissemsilt, Algeria</div>
-            <div style={styles.contactItem}>
-              <a href="https://www.linkedin.com/in/mellal-hayat-05bb11361/" target="_blank" rel="noopener noreferrer" style={{ color: 'white', textDecoration: 'underline' }}>
-                LinkedIn: mellal-hayat-05bb11361
-              </a>
-            </div>
-            <div style={styles.contactItem}>
-              <a href="https://hytmel.github.io/hayatdev-portfolio/" target="_blank" rel="noopener noreferrer" style={{ color: 'white', textDecoration: 'underline' }}>
-                Portfolio: hytmel.github.io/hayatdev-portfolio/
-              </a>
+              <div>
+                <h2 style={styles.sectionTitle}>CONTACT</h2>
+                <div style={styles.contactList}>
+                  <div style={styles.contactItem}>hayatttt1111@gmail.com</div>
+                  <div>+213 696 825 204</div>
+                  <div>Tissemsilt, Algeria</div>
+                  <div>
+                    <a
+                      href="https://www.linkedin.com/in/mellal-hayat-05bb11361/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={styles.link}
+                    >
+                      LinkedIn Profile
+                    </a>
+                  </div>
+                  <div>
+                    <a
+                      href="https://hytmel.github.io/hayatdev-portfolio/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={styles.link}
+                    >
+                      Portfolio Website
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h2 style={styles.sectionTitle}>TECHNICAL SKILLS</h2>
+                <ul style={styles.skillsList}>
+                  <li style={styles.skillItem}>
+                    <span style={styles.skillDot}></span>
+                    Java
+                  </li>
+                  <li style={styles.skillItem}>
+                    <span style={styles.skillDot}></span>
+                    JavaScript
+                  </li>
+                  <li style={styles.skillItem}>
+                    <span style={styles.skillDot}></span>
+                    HTML & CSS
+                  </li>
+                  <li style={styles.skillItem}>
+                    <span style={styles.skillDot}></span>
+                    React.js
+                  </li>
+                  <li style={styles.skillItem}>
+                    <span style={styles.skillDot}></span>
+                    Flutter & Dart
+                  </li>
+                  <li style={styles.skillItem}>
+                    <span style={styles.skillDot}></span>
+                    GitHub
+                  </li>
+                  <li style={styles.skillItem}>
+                    <span style={styles.skillDot}></span>
+                    Postman
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h2 style={styles.sectionTitle}>LANGUAGES</h2>
+                <ul style={styles.skillsList}>
+                  <li style={styles.skillItem}>
+                    <span style={styles.languageDot}></span>
+                    Arabic (Native)
+                  </li>
+                  <li style={styles.skillItem}>
+                    <span style={styles.languageDot}></span>
+                    English (Fluent)
+                  </li>
+                  <li style={styles.skillItem}>
+                    <span style={styles.languageDot}></span>
+                    French (Basic)
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 
-          <div style={styles.sectionTitle}>TECHNICAL SKILLS</div>
-          <ul style={styles.skillsList}>
-            <li style={styles.skillItem}>Java</li>
-            <li style={styles.skillItem}>JavaScript</li>
-            <li style={styles.skillItem}>HTML & CSS</li>
-            <li style={styles.skillItem}>React.js</li>
-            <li style={styles.skillItem}>Flutter & Dart</li>
-            <li style={styles.skillItem}>GitHub</li>
-            <li style={styles.skillItem}>Postman</li>
-          </ul>
+          {/* Main Content */}
+          <div style={styles.mainContent}>
+            <div style={styles.mainSections}>
+              <div style={styles.section}>
+                <h2 style={styles.mainSectionTitle}>EDUCATION</h2>
+                <div style={styles.card}>
+                  <h3 style={styles.cardTitle}>Computer Science Engineering</h3>
+                  <p style={styles.cardSubtitle}>
+                    ESI SBA (École Supérieure en Informatique de Sidi Bel Abbès)
+                  </p>
+                  <p style={styles.cardLocation}>Sidi Bel Abbès, Algeria</p>
+                  <p style={styles.cardDate}>2023 - 2025 (Expected)</p>
+                  <p style={styles.cardDescription}>
+                    Currently in 3rd year, specializing in software development
+                    and computer engineering.
+                  </p>
+                </div>
+              </div>
 
-          <div style={styles.sectionTitle}>LANGUAGES</div>
-          <ul style={styles.skillsList}>
-            <li style={styles.skillItem}>Arabic (Native)</li>
-            <li style={styles.skillItem}>English (Fluent)</li>
-            <li style={styles.skillItem}>French (Basic)</li>
-          </ul>
+              <div style={styles.section}>
+                <h2 style={styles.mainSectionTitle}>PROFESSIONAL EXPERIENCE</h2>
+                <div style={styles.experienceSection}>
+                  <div style={styles.card}>
+                    <h3 style={styles.cardTitle}>Flutter Developer</h3>
+                    <p style={styles.cardSubtitle}>
+                      GuideMe (2nd year project)
+                    </p>
+                    <p style={styles.cardDate}>2024</p>
+                    <p style={styles.cardDescription}>
+                      Developed a mobile app as part of a team project in my 2nd
+                      year at ESI SBA.
+                    </p>
+                  </div>
+
+                  <div style={styles.card}>
+                    <h3 style={styles.cardTitle}>React JS Developer</h3>
+                    <p style={styles.cardSubtitle}>
+                      NCS Hackathon (ECO-DZ project)
+                    </p>
+                    <p style={styles.cardDate}>2025</p>
+                    <p style={styles.cardDescription}>
+                      Built the admin dashboard for our project app ECO-DZ
+                      during a 4-day hackathon.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div style={styles.mainContent}>
-          <div style={{ ...styles.mainSectionTitle, ...styles.firstSection }}>
-            EDUCATION
-          </div>
-          <div style={styles.experienceItem}>
-            <div style={styles.jobTitle}>Computer Science Engineering</div>
-            <div style={styles.company}>
-              ESI SBA (École Supérieure en Informatique de Sidi Bel Abbès)
-            </div>
-            <div style={styles.company}>Sidi Bel Abbès, Algeria</div>
-            <div style={styles.date}>2023 - 2025 (Expected)</div>
-            <div style={styles.description}>
-              Currently in 3rd year, specializing in software development and computer engineering.
-            </div>
+        {/* Mobile Layout */}
+        <div style={styles.mobileLayout}>
+          {/* Header */}
+          <div style={styles.mobileHeader}>
+            <h1 style={styles.mobileHeaderTitle}>Hayat Mellal</h1>
+            <p style={styles.mobileHeaderSubtitle}>
+              Software Engineering Student / Frontend Developer
+            </p>
           </div>
 
-          <div style={styles.mainSectionTitle}>PROFESSIONAL EXPERIENCE</div>
-
-          <div style={styles.experienceItem}>
-            <div style={styles.jobTitle}>Flutter Developer</div>
-            <div style={styles.company}>GuideMe (2nd year project)</div>
-            <div style={styles.date}>2024</div>
-            <div style={styles.description}>
-              Developed a mobile app as part of a team project in my 2nd year at ESI SBA.
+          {/* Content */}
+          <div style={styles.mobileContent}>
+            {/* Contact */}
+            <div style={styles.mobileCard}>
+              <h2 style={styles.mobileCardTitle}>CONTACT</h2>
+              <div style={styles.mobileContactList}>
+                <div style={styles.contactItem}>📧 hayatttt1111@gmail.com</div>
+                <div>📱 +213 696 825 204</div>
+                <div>📍 Tissemsilt, Algeria</div>
+                <div>
+                  <a
+                    href="https://www.linkedin.com/in/mellal-hayat-05bb11361/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#2563eb", textDecoration: "underline" }}
+                  >
+                    💼 LinkedIn Profile
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href="https://hytmel.github.io/hayatdev-portfolio/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#2563eb", textDecoration: "underline" }}
+                  >
+                    🌐 Portfolio Website
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <div style={styles.experienceItem}>
-            <div style={styles.jobTitle}>React JS Developer</div>
-            <div style={styles.company}>NCS Hackathon (ECO-DZ project)</div>
-            <div style={styles.date}>2025</div>
-            <div style={styles.description}>
-              Built the admin dashboard for our project app ECO-DZ during a 4-day hackathon.
+            {/* Technical Skills */}
+            <div style={styles.mobileCard}>
+              <h2 style={styles.mobileCardTitle}>TECHNICAL SKILLS</h2>
+              <div style={styles.mobileSkillsGrid}>
+                <div style={styles.mobileSkillItem}>
+                  <span style={styles.mobileSkillDot}></span>
+                  Java
+                </div>
+                <div style={styles.mobileSkillItem}>
+                  <span style={styles.mobileSkillDot}></span>
+                  JavaScript
+                </div>
+                <div style={styles.mobileSkillItem}>
+                  <span style={styles.mobileSkillDot}></span>
+                  HTML & CSS
+                </div>
+                <div style={styles.mobileSkillItem}>
+                  <span style={styles.mobileSkillDot}></span>
+                  React.js
+                </div>
+                <div style={styles.mobileSkillItem}>
+                  <span style={styles.mobileSkillDot}></span>
+                  Flutter & Dart
+                </div>
+                <div style={styles.mobileSkillItem}>
+                  <span style={styles.mobileSkillDot}></span>
+                  GitHub
+                </div>
+                <div
+                  style={{
+                    ...styles.mobileSkillItem,
+                    ...styles.mobilePostmanSkill,
+                  }}
+                >
+                  <span style={styles.mobileSkillDot}></span>
+                  Postman
+                </div>
+              </div>
+            </div>
+
+            {/* Languages */}
+            <div style={styles.mobileCard}>
+              <h2 style={styles.mobileCardTitle}>LANGUAGES</h2>
+              <div style={styles.mobileLanguagesList}>
+                <div style={styles.mobileSkillItem}>
+                  <span style={styles.mobileLanguageDot}></span>
+                  Arabic (Native)
+                </div>
+                <div style={styles.mobileSkillItem}>
+                  <span style={styles.mobileLanguageDot}></span>
+                  English (Fluent)
+                </div>
+                <div style={styles.mobileSkillItem}>
+                  <span style={styles.mobileLanguageDot}></span>
+                  French (Basic)
+                </div>
+              </div>
+            </div>
+
+            {/* Education */}
+            <div style={styles.mobileCard}>
+              <h2 style={styles.mobileCardTitle}>EDUCATION</h2>
+              <div style={styles.mobileEducationContent}>
+                <h3 style={styles.mobileEducationTitle}>
+                  Computer Science Engineering
+                </h3>
+                <p style={styles.mobileEducationSubtitle}>
+                  ESI SBA (École Supérieure en Informatique de Sidi Bel Abbès)
+                </p>
+                <p style={styles.mobileEducationSubtitle}>
+                  Sidi Bel Abbès, Algeria
+                </p>
+                <p style={styles.mobileEducationDate}>2023 - 2025 (Expected)</p>
+                <p style={styles.mobileEducationDescription}>
+                  Currently in 3rd year, specializing in software development
+                  and computer engineering.
+                </p>
+              </div>
+            </div>
+
+            {/* Professional Experience */}
+            <div style={styles.mobileCard}>
+              <h2 style={styles.mobileCardTitle}>PROFESSIONAL EXPERIENCE</h2>
+              <div style={styles.mobileExperienceContent}>
+                <div style={styles.mobileExperienceItem}>
+                  <h3 style={styles.mobileExperienceTitle}>
+                    Flutter Developer
+                  </h3>
+                  <p style={styles.mobileExperienceSubtitle}>
+                    GuideMe (2nd year project)
+                  </p>
+                  <p style={styles.mobileExperienceDate}>2024</p>
+                  <p style={styles.mobileExperienceDescription}>
+                    Developed a mobile app as part of a team project in my 2nd
+                    year at ESI SBA.
+                  </p>
+                </div>
+
+                <div style={styles.mobileExperienceItem}>
+                  <h3 style={styles.mobileExperienceTitle}>
+                    React JS Developer
+                  </h3>
+                  <p style={styles.mobileExperienceSubtitle}>
+                    NCS Hackathon (ECO-DZ project)
+                  </p>
+                  <p style={styles.mobileExperienceDate}>2025</p>
+                  <p style={styles.mobileExperienceDescription}>
+                    Built the admin dashboard for our project app ECO-DZ during
+                    a 4-day hackathon.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <style>
+        {`
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          
+          @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+          }
+          
+          @media (min-width: 768px) {
+            .mobile-only { display: none !important; }
+            .desktop-only { display: flex !important; }
+          }
+          
+          @media (max-width: 767px) {
+            .mobile-only { display: block !important; }
+            .desktop-only { display: none !important; }
+          }
+        `}
+      </style>
     </div>
   );
 };
